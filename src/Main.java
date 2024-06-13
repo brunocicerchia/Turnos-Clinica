@@ -23,6 +23,9 @@ public class Main {
         clinica.agregarTurno("M", "B", "MB3");
 
         // Asignar y mostrar turnos
-        clinica.asignarTurnos();
+        for(int i = 0; i < 4; i++) {
+            System.out.println("Siguientes turnos");
+            clinica.asignarTurnos();
+        }
     }
 }

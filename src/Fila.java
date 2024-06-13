@@ -5,26 +5,26 @@ class Fila {
     public Fila() {
         this.altoRiesgo = new PilaTF();
         this.bajoRiesgo = new PilaTF();
-        this.altoRiesgo.inicializarPila();
-        this.bajoRiesgo.inicializarPila();
+        this.altoRiesgo.InicializarPila();
+        this.bajoRiesgo.InicializarPila();
     }
 
     public void agregarTurno(String tipo, String id) {
         if (tipo.equals("A")) {
-            altoRiesgo.apilar(Integer.parseInt(id));
+            altoRiesgo.Apilar(id);
         } else if (tipo.equals("B")) {
-            bajoRiesgo.apilar(Integer.parseInt(id));
+            bajoRiesgo.Apilar(id);
         }
     }
 
     public String obtenerSiguienteTurno() {
-        if (!altoRiesgo.pilaVacia()) {
-            String turnoId = String.valueOf(altoRiesgo.tope());
-            altoRiesgo.desapilar();
+        if (!altoRiesgo.PilaVacia()) {
+            String turnoId = String.valueOf(altoRiesgo.Tope());
+            altoRiesgo.Desapilar();
             return turnoId;
-        } else if (!bajoRiesgo.pilaVacia()) {
-            String turnoId = String.valueOf(bajoRiesgo.tope());
-            bajoRiesgo.desapilar();
+        } else if (!bajoRiesgo.PilaVacia()) {
+            String turnoId = String.valueOf(bajoRiesgo.Tope());
+            bajoRiesgo.Desapilar();
             return turnoId;
         } else {
             return null;

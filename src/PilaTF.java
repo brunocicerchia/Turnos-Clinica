@@ -1,26 +1,45 @@
-public class PilaTF {
-	private int []a;
-	private int contador;
-	//Se inicializa la estructura
-	public void inicializarPila() {
-		a = new int[100];
-		contador = 0;
+import api.PilaTDA;
+
+public class PilaTF implements PilaTDA {
+
+	Object[] arr; // Aquí se guardan los elementos de la pila. El tope al final
+	int cant;     // Cantidad de elementos en la pila
+
+	@Override
+	public void InicializarPila() {
+		arr = new Object[20]; // Cambiamos a Object para soportar cualquier tipo de datos
+		cant = 0;
 	}
-	
-	public void apilar(int x) {
-		a[contador] = x;
-		contador ++;
+
+	@Override
+	public void Apilar(Object x) { // Cambiamos int a Object
+		System.out.println("N");
+		arr[cant] = x;
+		cant++;
 	}
-	
-	public int tope() {
-		return a[contador -1];
+
+	@Override
+	public void Desapilar() {
+		if (cant > 0) {
+			cant--;
+		} else {
+			// Opcional: manejar caso de pila vacía
+			throw new IllegalStateException("La pila está vacía");
+		}
 	}
-	
-	public void desapilar() {
-		contador --;
+
+	@Override
+	public Object Tope() { // Cambiamos int a Object
+		if (cant > 0) {
+			return arr[cant - 1];
+		} else {
+			// Opcional: manejar caso de pila vacía
+			throw new IllegalStateException("La pila está vacía");
+		}
 	}
-	
-	public boolean pilaVacia() {
-		return (contador == 0);
+
+	@Override
+	public boolean PilaVacia() {
+		return (cant == 0);
 	}
 }
